@@ -2,11 +2,15 @@ package routers
 
 import (
 	"bubble/controller"
+	"bubble/setting"
 
 	"github.com/gin-gonic/gin"
 )
 
 func SetupRouter() *gin.Engine {
+	if setting.Conf.Release {
+		gin.SetMode(gin.ReleaseMode)
+	}
 	r := gin.Default()
 	r.LoadHTMLGlob("templates/*")
 	r.Static("/static", "./static")
