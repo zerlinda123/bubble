@@ -24,7 +24,6 @@ func AddTodo(c *gin.Context) {
 
 func GetTodo(c *gin.Context) {
 	// 查询待办事项
-
 	todolist, err := models.GetAllTodo()
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{"error": err})
